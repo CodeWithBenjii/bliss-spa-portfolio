@@ -1,1 +1,364 @@
-@use "base";
+@use 'reset';
+@use 'utilities';
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+$color-black: #030303;
+$color-medium-brown: #7a746e;
+$color-lightcream: #fff7f0;
+$color-1-galacticblue: #755cde;
+$color-2-summeryellow: #f6a560;
+$color-3-pink: #f39e9e;
+$color-4-lightred: #eb7565;
+$color-5-cyan: #61c4b7;
+$color-6-darkpurple: #552049;
+
+// small: 30em,
+// medium: 45em,
+// large: 65em,
+body {
+  font-family: Plus Jakarta Sans;
+  background-color: $color-lightcream;
+  color: $color-lightcream;
+}
+
+.header {
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-right {
+    background-color: $color-black;
+    padding: 0.875rem 2.8125rem;
+    border-radius: 1.75rem;
+  }
+  .header-right:hover {
+    background-color: $color-1-galacticblue;
+  }
+  a {
+    text-decoration: none;
+    color: $color-lightcream;
+  }
+
+  @media screen and (min-width: 45em) {
+    background-color: $color-lightcream;
+    margin: 2.437em;
+  }
+  @media screen and (min-width: 65em) {
+    background-color: $color-lightcream;
+    margin: 2.375em 9.625em;
+  }
+}
+
+.hero-container {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  @media screen and (min-width: 45em) {
+    margin: 2.437em;
+  }
+}
+.hero-text {
+  text-align: center;
+  margin: 0 1em;
+
+  h1 {
+    font-size: 2.375rem;
+    font-weight: bold;
+    line-height: 2.8125rem;
+    color: $color-black;
+  }
+  p {
+    font-size: 1rem;
+    color: $color-medium-brown;
+    font-weight: 500;
+    padding: 0 1.5em;
+  }
+  @media screen and (min-width: 45em) {
+    margin: 4em;
+    h1 {
+      font-size: 3.5rem;
+    }
+    p {
+      padding-top: 1em;
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  }
+  @media screen and (min-width: 65em) {
+  }
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto;
+  gap: 1.5em 1.5em;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'graphic-design graphic-design'
+    'graphic-design graphic-design'
+    'graphic-design graphic-design'
+    'ui-ux apps'
+    'illustrations illustrations'
+    'photography photography'
+    'motion-graphics motion-graphics';
+  .card {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .graphic-design {
+    grid-area: graphic-design;
+    background-color: $color-1-galacticblue;
+    img {
+      width: 8em;
+      align-self: flex-end;
+    }
+  }
+  .ui-ux {
+    grid-area: ui-ux;
+    background-color: $color-2-summeryellow;
+    height: 11.375em;
+    img {
+      width: 4em;
+      align-self: flex-end;
+    }
+  }
+  .apps {
+    grid-area: apps;
+    background-color: #f39e9e;
+    height: 11.375em;
+    img {
+      width: 4em;
+      align-self: flex-end;
+    }
+  }
+  .illustrations {
+    grid-area: illustrations;
+    background-color: $color-4-lightred;
+    height: 11.375em;
+    img {
+      width: 8em;
+      align-self: flex-end;
+    }
+  }
+  .photography {
+    grid-area: photography;
+    background-color: $color-5-cyan;
+    height: 11.375em;
+    img {
+      width: 8em;
+      align-self: flex-end;
+    }
+  }
+  .motion-graphics {
+    grid-area: motion-graphics;
+    background-color: #552049;
+    height: 11.375em;
+    img {
+      width: 8em;
+      align-self: flex-end;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1.5em;
+    grid-template-areas:
+      'graphic-design graphic-design ui-ux apps'
+      'graphic-design graphic-design illustrations illustrations'
+      'photography photography motion-graphics motion-graphics';
+  }
+  @media screen and (min-width: 65em) {
+    margin: 2.375em 9.625em;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5em;
+    grid-template-areas:
+      'graphic-design graphic-design ui-ux apps photography photography'
+      'graphic-design graphic-design illustrations illustrations motion-graphics motion-graphics';
+  }
+}
+.about {
+  display: grid;
+  margin: 6.25em 2em;
+  color: $color-black;
+  text-align: center;
+  .about-left {
+    margin-bottom: 2.5em;
+  }
+  .about-right {
+    h1 {
+      font-size: 1.625em;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 1em;
+      font-size: 1em;
+      color: $color-medium-brown;
+      line-height: 1.625rem;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    margin-right: 4rem;
+    margin-left: 0;
+    grid-template-columns: repeat(2, 1fr);
+    .about-left {
+      margin-left: -4rem;
+    }
+    .about-right {
+      text-align: left;
+      margin-left: 3.75rem;
+    }
+  }
+  @media screen and (min-width: 65em) {
+    margin-left: 10.3125em;
+    margin-right: 10.3125em;
+    .about-left {
+      margin: unset;
+    }
+    .about-right {
+      margin: 4em;
+    }
+  }
+}
+
+.my-work {
+  color: $color-black;
+  .my-work-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .my-work-slider {
+    margin: 4rem 0;
+    display: flex;
+    gap: 0.9375em;
+
+    img {
+      max-width: 16.875em;
+      border-radius: 0.625em;
+    }
+  }
+  .my-work-slider-btn {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 2rem 0;
+    
+    .my-work-slider-btn-span-left {
+      background-color: $color-black;
+      height: 4rem;
+      width: 4rem;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .my-work-slider-btn-span-right {
+      background-color: $color-black;
+      height: 4rem;
+      width: 4rem;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .my-work-slider-btn-span-left:hover {
+      background-color: $color-1-galacticblue;
+    }
+    .my-work-slider-btn-span-right:hover {
+      background-color: $color-1-galacticblue;
+    }
+  }
+}
+
+.footer {
+  margin: 6.25em 1em;
+  text-align: center;
+  .top {
+    background-color: $color-black;
+    border-radius: 0.625em;
+    padding: 3.1875em;
+    .left h4 {
+      font-size: 1.625rem;
+      font-weight: bold;
+    }
+    .left p {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.625rem;
+    }
+  }
+  @media screen and (min-width: 45em) {
+    .top {
+      .left h4 {
+        font-size: 2rem;
+      }
+      .left p {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+    }
+  }
+  @media screen and (min-width: 65em) {
+    margin: 2.375em 9.625em;
+  }
+  @media screen and (min-width: 65em) {
+    .top {
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      .left {
+        width: 40em;
+      }
+      .btn-red {
+        margin: auto;
+        
+      }
+      .btn-red a:hover {
+        background-color: $color-1-galacticblue;
+      }
+    }
+  }
+}
+.btn-red {
+  margin: 2.5em 0;
+  a {
+    text-decoration: none;
+    color: $color-lightcream;
+    background-color: $color-4-lightred;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    padding: 1em 1.6875em;
+    border-radius: 1.75em;
+  }
+}
+.btn-red a:hover {
+  background-color: $color-1-galacticblue;
+}
+
+.bottom {
+  margin: 2.5em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: $color-lightcream;
+    background-color: $color-black;
+    font-size: 0.875rem;
+    padding: 1em 1.75em;
+    border-radius: 1.75em;
+  }
+  .btn-red a:hover {
+    background-color: $color-1-galacticblue;
+  }
+}
